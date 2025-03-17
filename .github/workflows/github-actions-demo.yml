@@ -26,3 +26,5 @@ jobs:
           echo "commit_author=$(git log -1 --pretty=format:%an)"
           # 打印当前github的commit author email
           echo "commit_author_email=$(git log -1 --pretty=format:%ae)"
+          # 打印当前github的commit author date
+          echo "commit_author_date=$(git log -1 --pretty=format:%ad)"
