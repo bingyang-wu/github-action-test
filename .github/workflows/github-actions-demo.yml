@@ -16,3 +16,13 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
+      - name: Git log
+        run: |
+          # 打印当前github的commit id
+          echo "commit_id=$(git rev-parse HEAD)"
+          # 打印当前github的commit message
+          echo "commit_message=$(git log -1 --pretty=format:%s)"
+          # 打印当前github的commit author
+          echo "commit_author=$(git log -1 --pretty=format:%an)"
+          # 打印当前github的commit author email
+          echo "commit_author_email=$(git log -1 --pretty=format:%ae)"
