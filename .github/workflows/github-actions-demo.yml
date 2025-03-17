@@ -28,3 +28,10 @@ jobs:
           echo "commit_author_email=$(git log -1 --pretty=format:%ae)"
           # 打印当前github的commit author date
           echo "commit_author_date=$(git log -1 --pretty=format:%ad)"
+#      获取当天push的所有提交记录
+      - name: Get all commits
+        run: |
+          # 获取当天push的所有提交记录
+          git log --since=1.day --pretty=format:"%h %s" > commit.log
+          # 打印当天push的所有提交记录
+          cat commit.log
